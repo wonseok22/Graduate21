@@ -1,0 +1,128 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+	<head>
+	<link rel = "icon" type="image/png" href="resources/img/h.png"/>
+	<link rel="stylesheet" href="{% static 'css/table.css' %}">
+		<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+		<title>졸업요건조회 서비스</title>
+    <meta charset="utf-8">
+
+	</head>
+	<body width="100%" height="100%" bgcolor=#34495e>
+		<link rel="stylesheet" href="{% static 'css/cate.css' %}">
+		<section class="ftco-section">
+			<div class="loginForm">
+				<div >
+					<div >
+						<br>
+						<h2 class="heading-section">{{SID}}님의 졸업요건 충족 현황</h2>
+						<br>
+					</div>
+				</div>
+				<div>
+
+						<div class = "wrap-table100">
+							<table class="tab">
+							  <thead>
+								<tr class ="row header">
+								  <th>구분</th>
+								  <th>이수분야</th>
+								  <th>현재 이수학점</th>
+								  <th>충족 여부</th>
+								  <th>강의 추천</th>
+								</tr>
+							  </thead>
+							  <tbody>
+								{%for key,value in dic%}
+								<tr>
+									{% for val in value%}
+										{%if forloop.first %}
+											<td id = test class = "cell">{{val}}</td>
+										{% endif %}
+										{%if val != check and not forloop.first%}
+											<td class = "cell">{{val}}</td>
+										{% endif %}
+										{%if val == check%}
+									<td>
+										<button type="button" value={{key}} onclick="sel(this);" class="btn btn-primary">추천강의보기</button>
+									</td>
+										{% endif %}
+									{% endfor %}
+								</tr>
+								{% endfor %}
+
+							  </tbody>
+							</table>
+							<div class="resv-wrapper">
+								<div class="resv-bg">
+									<button class="resv-close" onclick="closeCategory()">X</button>
+										<div class="resv_info">
+											<div class="resv_ym">
+											<h3>추천 강의 카테고리 선택</h3>
+											</div>
+											<form name="check" method="post">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" id="assignment"  value="assignment" onclick="checkbox(this)">
+													<label class="form-check-label" for="assignment">과제</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" id="team" value="team" onclick="checkbox(this)">
+													<label class="form-check-label" for="team" >조모임</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" id="scoreRate" value="scoreRate" onclick="checkbox(this)">
+													<label class="form-check-label" for="scoreRate" >학점 비율</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" id="attendance" value="attendance" onclick="checkbox(this)">
+													<label class="form-check-label" for="attendance" >출결</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" id="examRate" value="examRate" onclick="checkbox(this)">
+													<label class="form-check-label" for="examRate">시험 횟수</label>
+												</div>
+											</form>
+										</div>
+										<div class="resv_set">
+											<button class="resv_btn purchase" onclick="showRecommendList()">추천 강의 보기</button>
+										</div>
+								</div>
+    						</div>
+							<div class="lec-wrapper">
+								<div class="lec-bg">
+									<button class="lec-close" onclick="closeRecommendList();">X</button>
+									<dic class="lec_info">
+										<div class="lec_ym">
+											<table class="table">
+												<thead class="thead-dark">
+													<tr>
+														<th scope="col">과목이름</th>
+                        								<th scope="col">개설학기</th>
+                        								<th scope="col">교수명</th>
+														<th scope="col">강의평점</th>
+														<th scope="col">조모임</th>
+														<th scope="col">과제</th>
+														<th scope="col">학점비율</th>
+													</tr>
+												</thead>
+												<tbody id="tableset"></tbody>
+											</table>
+										</div>
+									</dic>
+								</div>
+							</div>
+						</div>
+
+				</div>
+			</div>
+		</section>
+		<script src ="{% static 'js/categor.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+	</body>
+</html>
+

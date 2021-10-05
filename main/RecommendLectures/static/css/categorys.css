@@ -1,0 +1,258 @@
+.table{
+    width : 80%;
+    margin-left: auto; margin-right: auto;
+    text-align : center;
+}
+th, td{
+    align : center;
+
+
+}
+.sectionHeader{
+    margin-left : 10%;
+}
+
+/* show lecture list */
+.lec-wrapper{
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    padding: 5% 5%;
+    background-color: #3333335b;
+    display: none;
+    justify-content: center;
+}
+
+.lec-wrapper.open{
+    display: flex;
+}
+
+.lec-bg{
+    width: 100%;
+    position: relative;
+    padding: 5% 5%;
+    background-color: #ffffff;
+    height: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.lec-close{
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #ffffff;
+    text-align: right;
+    float: right;
+}
+
+
+
+/* RESERVE TAB */
+.resv-wrapper{
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    padding: 5% 5%;
+    background-color: #3333335b;
+    display: none;
+    justify-content: center;
+}
+
+.resv-wrapper.open{
+    display: flex;
+}
+
+.resv-bg{
+    width: 70%;
+    position: relative;
+    padding: 5% 5%;
+    background-color: #ffffff;
+    height: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.resv-close{
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #ffffff;
+    text-align: right;
+    float: right;
+}
+
+/* 예약인 리스트 */
+.resv-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    font-size: 15px;
+}
+
+.resv-list > p{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid var(--BG);
+}
+
+.resv-event{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    font-size: 15px;
+}
+
+.resv-event > p{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid var(--BG);
+}
+
+.resv_set{
+    cursor: pointer;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.resv_btn{
+    cursor: pointer;
+    font-size: 18px;
+    width: 40%;
+    height: 30px;
+    margin-top: 20px;
+    padding: 5px 0px;
+}
+.table td{
+        vertical-align: middle;
+}
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background:#34495e;
+}
+
+.table tr{
+    height: 45px;
+}
+
+.table td{
+    padding: 3px 3px 3px 3px;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background:#fff;
+    max-width:920px;
+    }
+
+@media screen and (max-width: 280px) {
+
+    .calendar {
+        width: 90%;
+        margin: auto;
+        padding-bottom: 50px;
+    }
+
+
+    .calendar_nav {
+        font-size: 20px;
+    }
+
+    .nav-btn {
+        font-size: 20px;
+    }
+
+    .date_event{
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: rgba(51, 51, 51, 0.2);
+        margin: auto;
+        border-radius: 100%;
+    }
+
+    .event-itm{
+        font-size: 0;
+    }
+}
+
+@media screen and (min-width: 280px) {
+
+    .calendar {
+        width: 90%;
+        margin: auto;
+        padding-bottom: 50px;
+    }
+
+    .calendar_nav {
+        font-size: 20px;
+    }
+
+    .nav-btn {
+        font-size: 20px;
+    }
+
+    .date_event{
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: rgba(51, 51, 51, 0.2);
+        margin: auto;
+        border-radius: 100%;
+    }
+
+    .event-itm{
+        font-size: 0;
+    }
+}
+
+
+@media screen and (min-width: 600px) {
+
+    .calendar {
+        width: 70%;
+        margin: auto;
+        padding-bottom: 50px;
+    }
+
+    .date_event{
+        display: inline-block;
+        width: auto;
+        height: auto;
+        background: #ff8f8f00;
+        margin: auto;
+        padding-bottom: 0%;
+        border-radius: 0%;
+    }
+
+    .event-itm{
+        font-size: 15px;
+    }
+
+}
