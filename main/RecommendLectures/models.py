@@ -1,12 +1,11 @@
 from django.db import models
 
 # Create your models here.
-
 class Generalculture(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
     subjects = models.CharField(db_column='Subjects', max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', primary_key=True, max_length=45)# Field name made lowercase.
+    professor = models.CharField(db_column='Professor', primary_key=True, max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -23,7 +22,7 @@ class Mscdataprocess(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
     subjects = models.CharField(db_column='Subjects', max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', primary_key=True, max_length=45)# Field name made lowercase.
+    professor = models.CharField(db_column='Professor', primary_key=True, max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -38,9 +37,9 @@ class Mscdataprocess(models.Model):
 
 class Mscmath(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  #Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', max_length=45)  # Field name madelowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -55,9 +54,9 @@ class Mscmath(models.Model):
 
 class Mscscience(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  #Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', max_length=45)  # Field name madelowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -186,9 +185,9 @@ class DjangoSession(models.Model):
 
 class Major21(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  #Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', max_length=45)  # Field name madelowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -201,11 +200,28 @@ class Major21(models.Model):
         unique_together = (('subjects', 'professor'),)
 
 
+class Major22(models.Model):
+    opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
+    campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
+    gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
+    homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    perofcredits = models.CharField(db_column='PerOfCredits', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    class_field = models.CharField(db_column='Class', max_length=45, blank=True, null=True)  # Field name made lowercase. Field renamed because it was a Python reserved word.
+
+    class Meta:
+        managed = False
+        db_table = 'major22'
+        unique_together = (('subjects', 'professor'),)
+
+
 class Major31(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  #Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', max_length=45)  # Field name madelowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -218,11 +234,28 @@ class Major31(models.Model):
         unique_together = (('subjects', 'professor'),)
 
 
+class Major32(models.Model):
+    opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
+    campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
+    gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
+    homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    perofcredits = models.CharField(db_column='PerOfCredits', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    class_field = models.CharField(db_column='Class', max_length=45, blank=True, null=True)  # Field name made lowercase. Field renamed because it was a Python reserved word.
+
+    class Meta:
+        managed = False
+        db_table = 'major32'
+        unique_together = (('subjects', 'professor'),)
+
+
 class Major41(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  #Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', max_length=45)  # Field name madelowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -235,11 +268,46 @@ class Major41(models.Model):
         unique_together = (('subjects', 'professor'),)
 
 
+class Major42(models.Model):
+    opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
+    campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
+    gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
+    homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    perofcredits = models.CharField(db_column='PerOfCredits', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    class_field = models.CharField(db_column='Class', max_length=45, blank=True, null=True)  # Field name made lowercase. Field renamed because it was a Python reserved word.
+
+    class Meta:
+        managed = False
+        db_table = 'major42'
+        unique_together = (('subjects', 'professor'),)
+
+
+class MajorAll(models.Model):
+    opensemester = models.CharField(db_column='OpenSemester', max_length=45, db_collation='utf8_bin', blank=True, null=True)  # Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45, db_collation='utf8_bin')  # Field name made lowercase.
+    campus = models.CharField(db_column='Campus', max_length=45, db_collation='utf8_bin', blank=True, null=True)  # Field name made lowercase.
+    professor = models.CharField(db_column='Professor', max_length=45, db_collation='utf8_bin')  # Field name made lowercase.
+    gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
+    homework = models.CharField(db_column='Homework', max_length=45, db_collation='utf8_bin', blank=True, null=True)  # Field name made lowercase.
+    groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, db_collation='utf8_bin', blank=True, null=True)  # Field name made lowercase.
+    perofcredits = models.CharField(db_column='PerOfCredits', max_length=45, db_collation='utf8_bin', blank=True, null=True)  # Field name made lowercase.
+    class_field = models.CharField(db_column='Class', max_length=45, db_collation='utf8_bin', blank=True, null=True)  # Field name made lowercase. Field renamed because it was a Python reserved word.
+    division = models.CharField(db_column='Division', max_length=45, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'major_all'
+        unique_together = (('subjects', 'professor'),)
+
+
 class Specialistculture(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
     subjects = models.CharField(db_column='Subjects', max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', primary_key=True, max_length=45)# Field name made lowercase.
+    professor = models.CharField(db_column='Professor', primary_key=True, max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -254,9 +322,9 @@ class Specialistculture(models.Model):
 
 class Specialistenglist(models.Model):
     opensemester = models.CharField(db_column='OpenSemester', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  #Field name made lowercase.
+    subjects = models.CharField(db_column='Subjects', primary_key=True, max_length=45)  # Field name made lowercase.
     campus = models.CharField(db_column='Campus', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    professor = models.CharField(db_column='Professor', max_length=45)  # Field name madelowercase.
+    professor = models.CharField(db_column='Professor', max_length=45)  # Field name made lowercase.
     gpa = models.FloatField(db_column='GPA', blank=True, null=True)  # Field name made lowercase.
     homework = models.CharField(db_column='Homework', max_length=45, blank=True, null=True)  # Field name made lowercase.
     groupmeeting = models.CharField(db_column='GroupMeeting', max_length=45, blank=True, null=True)  # Field name made lowercase.

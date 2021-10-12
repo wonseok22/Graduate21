@@ -48,14 +48,21 @@ class Compares:
                 self.check['취득학점'] = 140
 
     def crawling(self, ):
-
+        Rmajor = {
+            "자료구조및프로그래밍" : "미취득",
+            "알고리즘분석" : "미취득",
+            "컴퓨터구조" : "미취득",
+            "프로그래밍언어론" : "미취득",
+            "운영체제" : "미취득",
+            "소프트웨어공학" : "미취득"
+        }
         # Selenium을 이용한 졸업요건 Crawling
         # 직접 클래스넷에 접속하여 졸업요건 조회 사이트로 이동
         # 이후 HTML 자체를 크롤링하여 졸업요건 Data 확보
 
         options = webdriver.ChromeOptions()
-        options.add_argument("headless")
-        chromedriver = '.\\static\\driver\\chromedriver.exe' # 나중에 경로 어떻게 설정해야하는지 알아보고 수정할 것.
+        #options.add_argument("headless")
+        #chromedriver = '.\\static\\driver\\chromedriver.exe' # 나중에 경로 어떻게 설정해야하는지 알아보고 수정할 것.
         driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         #driver = webdriver.Chrome(chromedriver, options=options)
 
@@ -94,12 +101,15 @@ class Compares:
         '''
         info = driver.find_element_by_xpath('//*[@id="body"]/div[5]')
         a = driver.find_element_by_xpath('//*[@id="body"]/div[7]')
-        a = a.find_elements_by_class_name("center")
+        a = a.find_elements_by_tag_name("tr")
+        for index, value in enumerate(a):
+            body=value.find_elements_by_tag_name("td")
+            for idx,val in enumerate(body):
+                if idx == 2:
+                    if val.text in Rmajor:
+                        Rmajor[val.text] = "취득"
         info = info.find_elements_by_class_name("center")
         data = []
-        for z in a:
-            print(z.text)
-        # data가공
         for i in info:
             data.append(i.text)
         del data[0]
@@ -165,5 +175,5 @@ class Compares:
                 else:
                     output[key] = value+['부족','btn']
 
-        return output
+        return [output,Rmajor]
 

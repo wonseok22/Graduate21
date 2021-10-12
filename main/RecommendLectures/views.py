@@ -8,19 +8,33 @@ from . import compare
 # Create your views here.
 
 schoolyear = ''
+majorCheck = dict()
 
 
 def logincheck(request):
     if request.method == 'POST':
-        global schoolyear,sid
+        global majorCheck,sid
         ID = request.POST['user_id']
         PW = request.POST['user_pw']
         com = compare.Compares(ID,PW)
         result = com.crawling()
+        majorCheck = result[1]
+        result = result[0]
         if result == -1:
             return render(request, 'RecommendLectures/index.html', {'data': 'ID 또는 비밀번호가 잘못되었습니다.'})
         else:
-            return render(request, 'RecommendLectures/Graduate_Check.html', {'result': result, 'dic': result.items(), 'check': 'btn', "SID" : ID})
+            return render(request, 'RecommendLectures/Graduate_Check.html', {
+                                                                                'result': result,
+                                                                                'dic': result.items(),
+                                                                                'check': 'btn',
+                                                                                "SID" : ID,
+                                                                                "자료구조및프로그래밍" : majorCheck["자료구조및프로그래밍"],
+                                                                                "알고리즘분석": majorCheck["알고리즘분석"],
+                                                                                "컴퓨터구조": majorCheck["컴퓨터구조"],
+                                                                                "프로그래밍언어론": majorCheck["프로그래밍언어론"],
+                                                                                "운영체제": majorCheck["운영체제"],
+                                                                                "소프트웨어공학": majorCheck["소프트웨어공학"]
+                                                                             })
 
 
 
@@ -36,9 +50,8 @@ def RecommendLecture(request):
         '핵교6': 'Specialistculture',
         '핵교7': 'Specialistculture',
         '핵교8': 'Specialistculture',
-        '교필' : 'Specialistculture',
         '전공기초': 'Specialistenglist',
-        '전공': 'Major',
+        '전공': 'Major_all',
         '과학': 'Mscscience',
         '수학': 'Mscmath',
         '전산': 'Mscdataprocess',
@@ -53,7 +66,6 @@ def RecommendLecture(request):
         '핵교6': '법과생활',
         '핵교7': '공학의이해',
         '핵교8': '핵교8',
-        '교필' : '기초교양',
         '전공기초': '기초교양',
         '전공': '전공',
         '과학': 'MSC과학',
@@ -64,8 +76,8 @@ def RecommendLecture(request):
     c = request.GET["input"]
     Type = table[c]
     cls = section[c]
-    if Type == 'Major':
-        Type += schoolyear
+    if Type == 'Major_all':
+        data = MajorAll.objects.all()
     elif Type == 'Specialistculture':
         data = Specialistculture.objects.all()
     elif Type == 'Mscscience':
@@ -77,22 +89,34 @@ def RecommendLecture(request):
     else:
         data = Specialistenglist.objects.all()
     datas = []
-
     # 전공, 전공기초, MSC 체크
     # fonts 조절,
     # 테이블 디자인
     # 카테고리별 알고리즘 적용
-
+    #
     for value in data:
-        dic = {
+        if Type == 'Major_all' :
+            dic = {
             'subjects' : value.subjects,
             "gpa" : value.gpa,
             "opensemester" : value.opensemester,
             "professor" : value.professor,
             "homework" : value.homework,
             "groupmeeting" : value.groupmeeting,
-            "perofcredits" : value.perofcredits
-        }
+            "perofcredits" : value.perofcredits,
+            "class" : value.class_field,
+            "division" : value.division
+            }
+        else :
+            dic = {
+                'subjects' : value.subjects,
+                "gpa" : value.gpa,
+                "opensemester" : value.opensemester,
+                "professor" : value.professor,
+                "homework" : value.homework,
+                "groupmeeting" : value.groupmeeting,
+                "perofcredits" : value.perofcredits
+            }
         if Type == "Specialistenglist":
             datas.append(dic)
         elif Type[:5] == "Major":

@@ -11,16 +11,17 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	</head>
-	<body >
-		<link rel="stylesheet" href="{% static 'css/categorys.css' %}">
+	<body>
+		<link rel="stylesheet" href="{% static 'css/category.css' %}">
+		<section class="ftco-section">
 			<div class="container">
-				<div>
-					<div class="row justify-content-center">
-						<div class="col-md-6 text-center mb-5">
-							<br>
-							<h3 class="heading-section">{{SID}} 님의 졸업요건 충족 상황</h3>
-						</div>
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<br><br>
+						<h2 class="heading-section">졸업요건 충족 상황</h2>
 					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-12">
 						<div class="table-wrap">
 							<table class="table table-striped">
@@ -28,14 +29,14 @@
 								<tr>
 								  <th>구분</th>
 								  <th>이수분야</th>
-								  <th>현재<br>이수학점</th>
+								  <th>현재 이수학점</th>
 								  <th>충족 여부</th>
 								  <th>강의 추천</th>
 								</tr>
 							  </thead>
 							  <tbody>
 								{%for key,value in dic%}
-								<tr bordercolor = "black">
+								<tr>
 									{% for val in value%}
 										{%if forloop.first %}
 											<td id = test>{{val}}</td>
@@ -60,17 +61,16 @@
 									<button class="lec-close" onclick="closeRecommendList();"> X </button>
 									<div class="lec_info">
 										<div class="lec_ym">
-
                                             <div class="input-group mb-3">
                                               <div class="input-group-prepend">
                                                 <label class="input-group-text" for="inputGroupSelect01">Category</label>
                                               </div>
                                               <select class="custom-select" id="categorySelector" onchange="sortCategory()">
                                                 <option selected>Default...</option>
-                                                <option value="gpa">평균평점</option>
-                                                <option value="homework">과제</option>
-                                                <option value="groupmeeting">조모임</option>
-                                                <option value="perofcredits">학점비율</option>
+                                                <option value="Gpa">평균평점</option>
+                                                <option value="Homework">과제</option>
+                                                <option value="GroupMeeting">조모임</option>
+                                                <option value="PerOfCredits">학점비율</option>
                                               </select>
                                             </div>
                                             <div style="overflow:auto; height:600px;">
@@ -94,11 +94,64 @@
 									</div>
 								</div>
 							</div>
+
+                            <div class="major-wrapper">
+								<div class="major-bg">
+									<button class="major-close" onclick="closemajorRecommendList();"> X </button>
+									<div class="major_info">
+										<div class="major_ym">
+                                        <h3> 전공필수 과목 이수 현황</h3>
+                                            <div style="font-size: small">자료구조 및 프로그래밍 : {{ 자료구조및프로그래밍 }}</div>
+                                            <div style="font-size: small">알고리즘 분석 : {{ 알고리즘분석 }}</div>
+                                            <div style="font-size: small">컴퓨터 구조 : {{ 컴퓨터구조 }}</div>
+                                            <div style="font-size: small">프로그래밍 언어론 : {{ 프로그래밍언어론 }}</div>
+                                            <div style="font-size: small">운영체제 : {{ 운영체제 }}</div>
+                                            <div style="font-size: small">소프트웨어 공학 : {{ 소프트웨어공학 }}</div>
+
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                                          </div>
+                                              <select class="custom-select" id="majorcategorySelector" onchange="sortmajorCategory()">
+                                                <option selected>Default...</option>
+                                                <option value="Gpa">평균평점</option>
+                                                <option value="Homework">과제</option>
+                                                <option value="GroupMeeting">조모임</option>
+                                                <option value="PerOfCredits">학점비율</option>
+                                              </select>
+                                            </div>
+                                            <div style="overflow:auto; height:600px;">
+											<table class="table">
+												<thead class="thead-dark">
+													<tr>
+														<th scope="col" style="font-size: small">과목이름</th>
+														<th scope="col" style="font-size: small">개설학기</th>
+														<th scope="col" style="font-size: small">교수명</th>
+														<th scope="col" style="font-size: small">평균평점</th>
+														<th scope="col" style="font-size: small">조모임</th>
+														<th scope="col" style="font-size: small">과제</th>
+														<th scope="col" style="font-size: small">학점비율</th>
+														<th scope="col" style="font-size: small">학기구분</th>
+														<th scope="col" style="font-size: small">구분</th>
+													</tr>
+												</thead>
+												<tbody id="majortable">
+                                                </tbody>
+											</table>
+                                            </div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+
 						</div>
 					</div>
 				</div>
 			</div>
-		<script src ="{% static 'js/category.js' %}"></script>
+		</section>
+		<script src ="{% static 'js/cate.js' %}"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 	</body>
