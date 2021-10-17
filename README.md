@@ -11,19 +11,25 @@ Python의 Django 프레임워크를 활용한 "졸업요건 충족여부 및 강
 
 
 
-- tests
+- 주된 기능
+    - 클래스넷 정보로 로그인 시 이수학점을 토대로 한 졸업요건 충족 여부 디스플레이
+    - 원하는 이수분야의 강의들을 사용자가 선호하는 카테고리에 맞추어 디스플레이
     - MySQL 데이터 베이스를 활용한 추천 강의 데이터 운용
     - index : main 화면 app
     
 # 개발 환경
 
-- db
+- DB
     - AWS의 RDS서버
-    - MySQL
+    - MySQL Workbench
     
 
-- python
+- Python
     - 3.7 ver
     - Django3.2.5
-    - requests etc
+    - requests, Selenium, ChromeDriver etc..
+
+
+- HTML & CSS
+- Java Script
 ---
