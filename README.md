@@ -1,4 +1,4 @@
-# Graduate21
+# Description
 
 
 Python의 Django 프레임워크를 활용한 "졸업요건 충족여부 및 강의 추천 웹 서비스"
@@ -17,17 +17,17 @@ Python의 Django 프레임워크를 활용한 "졸업요건 충족여부 및 강
     - MySQL 데이터 베이스를 활용한 추천 강의 데이터 운용
     - index : main 화면 app
     
-# 개발 환경
+# Development Environment
 
 - DB
-    - AWS의 RDS서버
+    - AWS RDS Server
     - MySQL Workbench
     
 
 - Python
-    - 3.7 ver
-    - Django3.2.5
-    - requests, Selenium, ChromeDriver etc..
+    - "3.7.1"
+    - Django : "3.2.5"
+    - module : requests, Selenium, ChromeDriver etc..
 
 
 - HTML & CSS
