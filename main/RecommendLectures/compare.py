@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 
+
+
 login_url = "http://www.hongik.ac.kr/login.do?Refer=https://cn.hongik.ac.kr/"  # 클래스넷 접속 URL
 craw_url = 'https://cn.hongik.ac.kr/stud/' 
 
